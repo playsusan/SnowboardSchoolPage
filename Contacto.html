@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>WhiteSnow</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" href="img/favicon.ico"/>
+        <link href="css/master.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery.validate.js" type="text/javascript"></script>
+        <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $("#frm").validate({
+
+            });
+
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+                especiales = [8, 37, 39, 46];
+
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                    return false;
+            }
+
+            function soloNumeros(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "0123456789";
+                especiales = [8, 37, 39, 46];
+
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                    return false;
+            }
+        </script>
+    </head>
+    <body>
+        <a href="index.html">
+            <img class="encabezado" src="img/PIXNIO-350710.jpg" alt=""/>
+        </a>
+        <form id="frm" action="request.jsp">
+            <div class="contactoContainer">
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody>
+                        <tr >
+                            <td class="primeraColumna">
+                                Nombre Completo: &nbsp;
+                            </td>
+                            <td><input type="text" Class="nombreText" onkeypress="return soloLetras(event)" required/></td>
+                        </tr>
+                        <tr>
+                            <td >
+                                Email: &nbsp;
+                            </td>
+                            <td ><input Class="contactoText" type="email" name="email" required></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Fono Contacto: &nbsp;
+                            </td>
+                            <td><input Class="contactoText" type="number" onkeypress="return soloNumeros(event)" min="000000000" max="999999999" required /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Genero(Sexo): &nbsp;
+                            </td>
+                            <td> <select>
+                                    <option value="Hombre">Hombre</option>
+                                    <option value="Mujer">Mujer</option>
+                                </select> </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Edad: &nbsp;
+                            </td>
+                            <td><input class="edad" type="number" min="1" max="99" onkeypress="return soloNumeros(event)" required></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Fecha Nacimiento: &nbsp;
+                            </td>
+                            <td><input class="nacimiento" type="date" name="bday" required></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Situacion Laboral: &nbsp;
+                            </td>
+                            <td>
+                                <input type="radio" name="situacionLaboral" value="desempleado"> Desempleado
+                                <input class="situacionform" type="radio" name="situacionLaboral" value="empleado"> Empleado
+                                <input class="situacionform" type="radio" name="situacionLaboral" value="retirado"> Retirado
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Observaci&oacute;n: &nbsp;
+                            </td>
+                            <td><input id="obs"style="width: 98%; resize: none;"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="acepto">
+                                    <input type="checkbox" name="acepto" value="aceptoTerminos" required> Acepto las condiciones de registro en el sitio web.<br>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div>
+                    <input type="submit" class="btn btn-info btn-block" value="Enviar"/>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

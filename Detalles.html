@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>WhiteSnow</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.ico"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/master.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                getIndicadores();
+            });
+
+            function getIndicadores() {
+                $.ajax({
+                    url: "https://mindicador.cl/api",
+                    data: "",
+                    success: function (datos) {
+                        $("#dolar").text(datos.dolar.valor);
+                    }
+                });
+            }
+        </script>
+
+    </head>
+    <body>
+        <a href="index.html">
+            <img class="encabezado" src="img/PIXNIO-350710.jpg" alt=""/>
+        </a>
+        <table class="table ">
+            <tr>
+                <td>
+                    <div class="panel-heading">
+                        <h2>Valor dólar al día</h2>   
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <label>$&nbsp;</label><label id="dolar"></label>
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="container">
+            <table class="table table-striped">
+                <tr>
+                    <td class="columna1">
+                        <div class="detalle">
+                            <h3>Clase Colectiva</h3>
+                            <ul>
+                                <li>Minimo 4 alumnos por clase.</li>
+                                <li>Con horario a elección entre 10 o 14 horas.</li>
+                                <li>Duración de 1 hora 30 minutos.</li>
+                                <li>Valor: 67 USD la clase</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <img class="img2" src="img/snowboard 1.jpg" alt=""/> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="detalle">
+                            <h3>Clase Particular</h3>
+                            <ul>
+                                <li>Con horario a elección entre 9 a 11 y 15 a 17 horas.</li>
+                                <li>Duración de 55 minutos.</li>
+                                <li>Valor: 94 USD la clase.</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <img class="img2" src="img/snowboard 2.jpg" alt=""/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="detalle">
+                            <h3>Contratación</h3>
+                            <ul>
+                                <li>Con horario  de 9:00 a 17:00 hrs.</li>
+                                <li>Duración de 7 horas 55 minutos.</li>
+                                <li>Valor: 567 USD la clase.</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <img class="img2" src="img/Snowboard3.jpg" alt=""/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="foot" colspan="2">* Ninguna clase incluye movilización y tampoco comidas *</td> 
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
